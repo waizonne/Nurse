@@ -13,9 +13,9 @@ namespace Nurse
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class nurseEntities : DbContext
+    public partial class NurseEntities : DbContext
     {
-        public nurseEntities()
+        public NurseEntities()
             : base("name=nurseEntities")
         {
         }

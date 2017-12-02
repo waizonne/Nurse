@@ -786,6 +786,7 @@ pre code {
 .row {
   margin-right: -15px;
   margin-left: -15px;
+  margin-top: 15px;
 }
 
 .row:before,
@@ -4192,10 +4193,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
-  float: left;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    float: left;
+    padding: 15px 15px;
+    font-size: 40px;
+    line-height: 20px;
+    font-weight:bold;
 }
 
 .navbar-brand:hover,
@@ -4501,12 +4504,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+    background-color: #01579B;
+    border-color: #01579B;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: lightyellow;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4516,16 +4519,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #81D4FA;
   background-color: transparent;
 }
 

@@ -86,3 +86,5 @@ E:\Documents\Nurse\Nurse\obj\Debug\Nurse.csproj.CoreCompileInputs.cache
 E:\Documents\Nurse\Nurse\obj\Debug\Nurse.dll
 E:\Documents\Nurse\Nurse\obj\Debug\Nurse.pdb
 E:\Documents\Nurse\Nurse\obj\Debug\Nurse.csprojResolveAssemblyReference.cache
+E:\Documents\Nurse\Nurse\bin\Dapper.dll
+E:\Documents\Nurse\Nurse\bin\Dapper.xml
