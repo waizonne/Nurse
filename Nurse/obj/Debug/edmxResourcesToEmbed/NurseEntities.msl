@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nurseModelStoreContainer" CdmEntityContainer="nurseEntities">
+    <EntitySetMapping Name="educates">
+      <EntityTypeMapping TypeName="nurseModel.educates">
+        <MappingFragment StoreEntitySet="educates">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nurse_list">
+      <EntityTypeMapping TypeName="nurseModel.nurse_list">
+        <MappingFragment StoreEntitySet="nurse_list">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_nurse" ColumnName="fk_nurse" />
+          <ScalarProperty Name="fk_train" ColumnName="fk_train" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staff">
+      <EntityTypeMapping TypeName="nurseModel.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="train">
+      <EntityTypeMapping TypeName="nurseModel.train">
+        <MappingFragment StoreEntitySet="train">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="fk_educate" ColumnName="fk_educate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

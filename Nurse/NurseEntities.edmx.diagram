@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b554db52b8e740a0a6fa94f7d706b7bc" Name="Diagram1">
+        <EntityTypeShape EntityType="nurseModel.educates" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="nurseModel.nurse_list" Width="1.5" PointX="6.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="nurseModel.staff" Width="1.5" PointX="9.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="nurseModel.train" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="nurseModel.FK_educates_train" ManuallyRouted="false" />
+        <AssociationConnector Association="nurseModel.FK_train_educates" ManuallyRouted="false" />
+        <AssociationConnector Association="nurseModel.FK_nurse_list_staff" ManuallyRouted="false" />
+        <AssociationConnector Association="nurseModel.FK_nurse_list_train" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

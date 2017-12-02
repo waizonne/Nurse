@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nurseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="educates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="train" Relationship="Self.FK_educates_train" FromRole="educates" ToRole="train" />
+    <NavigationProperty Name="train1" Relationship="Self.FK_train_educates" FromRole="educates" ToRole="train" />
+  </EntityType>
+  <EntityType Name="nurse_list">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_nurse" Type="Int32" Nullable="false" />
+    <Property Name="fk_train" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_nurse_list_staff" FromRole="nurse_list" ToRole="staff" />
+    <NavigationProperty Name="train" Relationship="Self.FK_nurse_list_train" FromRole="nurse_list" ToRole="train" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="nurse_list" Relationship="Self.FK_nurse_list_staff" FromRole="staff" ToRole="nurse_list" />
+  </EntityType>
+  <EntityType Name="train">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="place" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="fk_educate" Type="Int32" />
+    <NavigationProperty Name="educates" Relationship="Self.FK_educates_train" FromRole="train" ToRole="educates" />
+    <NavigationProperty Name="educates1" Relationship="Self.FK_train_educates" FromRole="train" ToRole="educates" />
+    <NavigationProperty Name="nurse_list" Relationship="Self.FK_nurse_list_train" FromRole="train" ToRole="nurse_list" />
+  </EntityType>
+  <Association Name="FK_educates_train">
+    <End Role="educates" Type="Self.educates" Multiplicity="0..1" />
+    <End Role="train" Type="Self.train" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="educates">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="train">
+        <PropertyRef Name="fk_educate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_train_educates">
+    <End Role="educates" Type="Self.educates" Multiplicity="0..1" />
+    <End Role="train" Type="Self.train" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="educates">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="train">
+        <PropertyRef Name="fk_educate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_nurse_list_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="nurse_list" Type="Self.nurse_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="nurse_list">
+        <PropertyRef Name="fk_nurse" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_nurse_list_train">
+    <End Role="train" Type="Self.train" Multiplicity="1" />
+    <End Role="nurse_list" Type="Self.nurse_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="train">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="nurse_list">
+        <PropertyRef Name="fk_train" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nurseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="educates" EntityType="Self.educates" />
+    <EntitySet Name="nurse_list" EntityType="Self.nurse_list" />
+    <EntitySet Name="staff" EntityType="Self.staff" />
+    <EntitySet Name="train" EntityType="Self.train" />
+    <AssociationSet Name="FK_educates_train" Association="Self.FK_educates_train">
+      <End Role="educates" EntitySet="educates" />
+      <End Role="train" EntitySet="train" />
+    </AssociationSet>
+    <AssociationSet Name="FK_train_educates" Association="Self.FK_train_educates">
+      <End Role="educates" EntitySet="educates" />
+      <End Role="train" EntitySet="train" />
+    </AssociationSet>
+    <AssociationSet Name="FK_nurse_list_staff" Association="Self.FK_nurse_list_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="nurse_list" EntitySet="nurse_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_nurse_list_train" Association="Self.FK_nurse_list_train">
+      <End Role="train" EntitySet="train" />
+      <End Role="nurse_list" EntitySet="nurse_list" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
